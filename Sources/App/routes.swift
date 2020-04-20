@@ -33,7 +33,7 @@ public func routes(_ router: Router) throws {
     ]
     """
         }
-   
+// Still trying to get the database working correctly
 //------------------------------------------------------------------
 //    router.get { req -> Future<View> in
 //        return ProfileData.query(on: req).all().flatMap(to: View.self) {
