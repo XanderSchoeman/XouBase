@@ -24,9 +24,7 @@ public func routes(_ router: Router) throws {
         let age: Int = try req.content.syncGet(at: "age")
         let favouriteCount: Int = try req.content.syncGet(at: "favouriteCount")
         let genrePref: String = try req.content.syncGet(at: "genrePref")
-
         let userObj = User(id: nil, username: username, password: password, profileImage: profileImage, fullName: fullName, email: email, gender: gender, age: age, favouriteCount: favouriteCount, genrePref: genrePref)
-        
         return userObj.save(on: req)
     }
     
