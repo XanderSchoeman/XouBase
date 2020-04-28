@@ -22,17 +22,25 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 
     var databaseConfig = DatabasesConfig()
     let db = try SQLiteDatabase(storage: .file(path: "\(directoryConfig.workDir)profiles.db"))
+    //let db = try SQLiteDatabase(storage: .memory)
     databaseConfig.add(database: db, as: .sqlite)
     services.register(databaseConfig)
 
     var migrationConfig = MigrationConfig()
-    migrationConfig.add(model: ProfileData.self, database: .sqlite)
+    migrationConfig.add(model: User.self, database: .sqlite)
     services.register(migrationConfig)
 
+    var middlewares = MiddlewareConfig()
+    //middlewares.use(DateMiddleware.self)
+    middlewares.use(ErrorMiddleware.self)
+    services.register(middlewares)
 
-      
+//    let serverConfigure = NIOServerConfig.default(hostname: "0.0.0.0", port: 9090)
+//    services.register(serverConfigure)
 
-    
-    
-    
+
+
+
 }
+
+

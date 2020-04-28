@@ -9,21 +9,17 @@ import FluentSQLite
 import Foundation
 import Vapor
 
-public struct ProfileData: Content, SQLiteModel, Migration {
-    public var id: Int?
+struct User: Content, SQLiteUUIDModel, Migration {
+    var id: UUID?
     var username: String
     var password: String
-    var profileImage: String?
-    
-    init(id: Int, username: String, password: String, profileImage: String) {
-        self.id = id
-        self.username = username
-        self.password = password
-        self.profileImage = profileImage
-    }
+        var profileImage: String?
+        var fullName: String
+        var email: String
+        var gender: String
+        var age: Int
+        var favouriteCount: Int
+        var genrePref: String
 }
 
-public struct ProfileResponse: Content {
-    let request: ProfileData
-}
 

@@ -1,21 +1,22 @@
 <html>
-  <body>
-      <h1>XouBase Profile creator</h1>
-      <p>Welcome Fellow user!</p>
-      <ul>
-      #for(profile in profiles) {
-      <li>#(profile.username)</li>
-      }
-      </ul>
-      
-      <h2>Add new user: </h2>
-      <form method="post" action="/add">
-      <p>ID: <input type="number" name="id" /></p>
-      <p>Username: <input type="text" name="username" /></p>
-      <p>Password: <input type="text" name="password" /></p>
-      <p>Profile Image Url: <input type="text" name="profileImage" /></p>
-      <button type="submit">Add</button>
-      </form>
-  </body>
-</html
+<body>
+<h3>XouBase</h3>
+<form method="post" action="/send">
+<p>Username: <input type="text" name="username" /></p>
+<p>Password: <input type="text" name="password" /></p>
+<p>profileImage: <input type="text" name="profileImage" /></p>
+<p>fullName: <input type="text" name="fullName" /></p>
+<p>email: <input type="text" name="email" /></p>
+<p>gender: <input type="text" name="gender" /></p>
+<p>age: <input type="text" name="age" /></p>
+<p>favouriteCount: <input type="text" name="favouriteCount" /></p>
+<p>genrePref: <input type="text" name="genrePref" /></p>
+<p><input type="submit" /></p>
+</form>
+<h2>Users In DB…</h2>
 
+#for(user in users) {
+    <p>Username: #(user.username) Password: "#(user.password)".</p>
+}
+</body>
+</html>
