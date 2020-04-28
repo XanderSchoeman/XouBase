@@ -31,8 +31,8 @@ public func routes(_ router: Router) throws {
         router.post("authenticate") { req -> Future<[User]> in
         let username: String = try req.content.syncGet(at: "username")
         let password: String = try req.content.syncGet(at: "password")
-        let something = User.query(on: req).filter(\User.username == username).filter(\User.password == password).all()
-            return something
+        let authenticatedUser = User.query(on: req).filter(\User.username == username).filter(\User.password == password).all()
+            return authenticatedUser
     }
 
 }
